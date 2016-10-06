@@ -24,15 +24,13 @@ exports.config = {
 
 	// Spec patterns are relative to the current working directory when
 	// protractor is called.
-	//specs: ['../scripts/Login_CafeTownsend.js', '../scripts/Create_Employee.js'],
-	//specs: ['../scripts/Create_Employee.js'],
-	specs: ['../scripts/EditnDelete_Employee.js'],
+	specs: ['../scripts/CT_Log*_spec.js', '../scripts/CT_Employee_*_spec.js'],
 
 	// Override the timeout for webdriver to 30 seconds.
 	allScriptsTimeout: 30000,
 
 	// Options to be passed to Jasmine.
 	jasmineNodeOpts: {
-	defaultTimeoutInterval: 480000
+	defaultTimeoutInterval: 240000
 	}
 };

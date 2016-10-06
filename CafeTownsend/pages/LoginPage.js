@@ -17,6 +17,15 @@ var CTLoginPage = function() {
 		inPassword.sendKeys(_password);
 	};
 	
+	this.getUserName = function(){
+		return inUserName.getText();
+	};
+	
+	this.getPassword = function(){
+		//return inPassword.getText();
+		return inPassword.getAttribute('value');
+	};
+	
 	this.clickLoginButton = function(){
 		btLogin.click();
 	};
