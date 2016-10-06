@@ -1,0 +1,76 @@
+<body style="">
+
+<div class="main-view ng-scope main-view-create" ng-controller="MainController" ng-class="{login:'main-view-loggedIn',
+    employees:'main-view-employees',
+    edit:'main-view-edit',
+    create:'main-view-create'}[viewState.current]">
+  <header ng-controller="HeaderController" class="ng-scope">
+    <div ng-class="{'hide-header':!authorized()}" class="header-container" style="">
+      <p class="main-button" ng-click="logout()">Logout</p>
+      <p id="greetings" class="ng-binding">Hello Luke</p>
+    </div>
+  </header>
+
+  <div class="main-view-wrapper main-view-wrapper-create" ng-class="{login:'main-view-wrapper-loggedIn',
+      employees:'main-view-wrapper-employees',
+      edit:'main-view-wrapper-edit',
+      create:'main-view-wrapper-create'}[viewState.current]">
+    <!-- ngView:  --><div ng-view="" class="main-view-container ng-scope"><ul id="sub-nav" ng-hide="isCreateForm" class="ng-scope ng-hide">
+  <li><a class="subButton bBack" ng-click="browseToOverview()">Back</a></li>
+</ul>
+<ul id="sub-nav" ng-show="isCreateForm" class="ng-scope">
+  <li><a class="subButton bCancel" ng-click="browseToOverview()">Cancel</a></li>
+</ul>
+<form name="employeeForm" ng-submit="submit()" class="ng-scope ng-pristine ng-invalid ng-invalid-required">
+  <fieldset>
+    <legend ng-hide="isCreateForm" class="ng-hide">
+      Edit
+    </legend>
+    <legend ng-show="isCreateForm" class="">
+      Add
+    </legend>
+    <label>
+      <span>First name:</span>
+      <input type="text" ng-model="selectedEmployee.firstName" required="" autofocus="" class="ng-pristine ng-invalid ng-invalid-required">
+    </label>
+    <label>
+      <span>Last name:</span>
+      <input type="text" ng-model="selectedEmployee.lastName" required="" class="ng-pristine ng-invalid ng-invalid-required">
+
+    </label>
+
+    <label>
+      <span>Start date:</span>
+      <input type="text" ng-model="selectedEmployee.startDate" title="Please enter a date formatting YYYY-MM-DD" ng-pattern="/(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])/" size="10" required="" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern">
+    </label>
+
+    <label><span>Email:</span>
+      <input type="email" ng-model="selectedEmployee.email" required="" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+    </label>
+
+    <div class="formFooter">
+      <button type="submit" class="main-button ng-hide" ng-hide="isCreateForm" ng-disabled="true">Update</button>
+      <button type="submit" class="main-button" ng-show="isCreateForm" ng-disabled="true">Add</button>
+      <p class="main-button ng-hide" ng-hide="isCreateForm" ng-click="deleteEmployee()">Delete</p>
+    </div>
+
+  </fieldset>
+</form>
+</div>
+  </div>
+
+  <footer>
+    <p>
+      Built with <a href="http://angularjs.org/">AngularJS</a>,
+      <a href="http://coffeescript.org/">CoffeeScript</a>,
+      <a href="http://bourbon.io/">Bourbon</a> and <a href="http://rubyonrails.org/">Rails</a>.<br>
+    </p>
+
+    <p>
+      <a href="https://github.com/sectore/CafeTownsend-Angular-Rails">Get source code</a> by
+      <a href="http://www.websector.de">Jens Krause</a> @2012-2014
+    </p>
+  </footer>
+</div>
+
+</body>
